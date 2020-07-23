@@ -24,10 +24,10 @@ me=$(basename "$0")
 ################################################## script variables start ######################################################
 
 # default 0 but set the master switch to 1 if you want to enable the script otherwise it will not run.
-enabled="0"
+enabled="1"
 
 # backup location to put vdisks.
-backup_location="/mnt/user/share/backup_folder/"
+backup_location="/mnt/user/Backup/VM/"
 
 # default is 0. backup all vms or use vms_to_backup.
 # when set to 1, vms_to_backup will be used as an exclusion list.
@@ -36,15 +36,15 @@ backup_all_vms="0"
 # list of vms that will be backed up separated by a new line.
 # if backup_all_vms is set to 1, this will be used as a list of vms to exclude instead.
 vms_to_backup="
-vm1
-vm2
+epsilon
+gameboy
+HASS
 "
 
 # list of specific vdisks to be skipped separated by a new line. use the full path.
 # NOTE: must match path in vm config file. remember this if you change the virtual disk path to enable snapshots.
 vdisks_to_skip="
-/mnt/user/domains/vm1/vdisk2.img
-/mnt/user/domains/vm1/vdisk3.img
+
 "
 
 # list of specific vdisk extensions to be skipped separated by a new line. this replaces the old ignore_isos variable.
@@ -69,7 +69,7 @@ number_of_days_to_keep_backups="0"
 
 # default is 0. set this to the number of backups that should be kept. 0 means infinitely.
 # WARNING: If VM has multiple vdisks, then they must end in sequential numbers in order to be correctly backed up (i.e. vdisk1.img, vdisk2.img, etc.).
-number_of_backups_to_keep="0"
+number_of_backups_to_keep="4"
 
 # default is 0. set this to 1 if you would like to perform inline zstd compression.  This overrides the "compress_backups" and "compare_files" options.
 inline_zstd_compress="0"
